@@ -11,7 +11,7 @@
 <!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-<!-- CSS -->
+<!-- External CSS -->
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -27,9 +27,9 @@
   <div class="collapse navbar-collapse" id="menu">
     <ul class="navbar-nav ms-auto">
       <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
       <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-      <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      <li class="nav-item"><a class="nav-link" href="#contact">Contact Me</a></li>
     </ul>
   </div>
 </div>
@@ -57,61 +57,37 @@
 </div>
 </section>
 
-<!-- SERVICES -->
-<section id="services" class="py-5">
-<div class="container">
-<h2 class="text-center mb-4">Our Services</h2>
-
-<div class="row g-4">
-
-<div class="col-md-4">
-  <div class="service-card small-card">
-    <a href="ai.html">
-      <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
-      <h5>Artificial Intelligence</h5>
-    </a>
-  </div>
-</div>
-
-<div class="col-md-4">
-  <div class="service-card small-card">
-    <a href="cloud.html">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
-      <h5>Cloud Computing</h5>
-    </a>
-  </div>
-</div>
-
-<div class="col-md-4">
-  <div class="service-card small-card">
-    <a href="data.html">
-      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
-      <h5>Data Engineering</h5>
-    </a>
-  </div>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="about-section py-5">
-<div class="container">
-<h2 class="text-center mb-4">About Us</h2>
-<p class="text-center">
-Nest Tech Park is a forward-thinking technology solutions provider focused on AI, Cloud Computing, Data Engineering, and Software Development. 
-We create scalable, secure, and innovative digital solutions for businesses to thrive in the digital era.
+<!-- ABOUT ME -->
+<section id="about" class="py-5">
+<div class="container text-center">
+<h2>About Me</h2>
+<p>
+Hi, I am a passionate technology professional. I specialize in Artificial Intelligence, Cloud Computing, Data Engineering, and Software Development.
+I build scalable, secure, and innovative digital solutions to help businesses thrive in the digital era.
 </p>
 </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="text-center py-3">
-© 2026 Nest Tech Park
-</footer>
+<!-- SERVICES -->
+<section id="services" class="py-5 bg-light">
+<div class="container">
+<h2 class="text-center mb-4">My Services</h2>
+<div class="row justify-content-center g-4">
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+<div class="col-6 col-sm-4 col-md-3">
+  <div class="service-card" onclick="showDetails('AI')">
+    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
+    <h6>Artificial Intelligence</h6>
+  </div>
+</div>
+
+<div class="col-6 col-sm-4 col-md-3">
+  <div class="service-card" onclick="showDetails('Cloud')">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+    <h6>Cloud Computing</h6>
+  </div>
+</div>
+
+<div class="col-6 col-sm-4 col-md-3">
+  <div class="service-card" onclick="showDetails('Data')">
+    <img src="https://images.unsplash.com/photo-1550751827-
