@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services - Nest Tech Park</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand img {
+            height: 42px;
+            margin-right: 10px;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #00d4ff !important;
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .service-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .service-card img {
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        footer h5 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        footer p {
+            color: #ccc;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #00d4ff;
+        }
+
+        footer hr {
+            margin: 2rem 0;
+            border-color: #444;
+        }
+
+        footer .text-center p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Responsive improvements */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 80px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALgAAACUCAMAAAAXgxO4AAAA/1BMVEX///8uMZLrHCS7vMAAAAD///24ub38/PwrLpLrAADd3d21trroAAC/v8JaWlq6vsL19fXt7e3Iyczn5+cXExTsFx9EQ0MhJY8mKZDP0NKdnZ3Xen0VGosdIY4sKCnsEBrp6fEAAIVIS5hAQpbrAA6lpabUhYrNzt81OJPY2edoaqiNjry2t9Jyc6vExdqvsL2PkrD67O721dboYWmOjo7Za29mZGTsmZrws7XoODucoMVXVqOprMwFDYhZW6F7frKBhKumpbpzc6LpgITocnParK3zw8Xso6boKi3pXV/sRUvtjZDpUld2dnYfHx+/pKc5NTbBsrbGmZ7Ut7nOjZHpYDD1AAANF0lEQVR4nO2cC1ei0BbHURQQJF6R0OCgQmlmlvZSJ7XGrmnZlN2+/2e5+/BQLIuDUjPrLv+raczi+HOzz977vCSIjTbaaKONNtpoo4022uj/RWkk9B09nj9BpL2n0n8X7wO5gJ/8/tPf/mXRtFQoX3UOj35ZFSan5XI5pmL1+odX9YJI/2PgHoxYOKhfHVYrRrFY7Bp5jUFKIDFa3ugWi7lf/U79oCA61/z9d+AgiMDc72lG18hpLuwSAX/X0HqHtXLhnyAnCrXDoxJjGLkPkQPwTM4wrOphrfDXcD2TFa6qViKX08KZA/S5XMKq1mnXy77b9PB6dKFWgpvPYFh6id90c/2y+L3crrEL9X6uG8nSC+DwZRR7tQPaMcK34DtBrdzpdfOrmHpBOaN0WP7OAF8/svK5dakdaYbVL399kEk7N7Xe+yToLRWTYBaVmF+v5ZijAvHFzg6Ni/VfxQjYmoY6b8WyrJIr9MCyKsA7D0X54mGB/kpuwC4fFXOJBB44xGzG6lV/X5/c3Bwfc5Sj42OhXC7Xa4f9qmV08x68UekUvooZueFBv5LHtXU+Z1UB+VjgPZEg539eZhUagmm51jmyIJ46bzLfqxFf4uuoyY6Fm2kgUP6+OeZ83jeiKJLXJWiUFgvlQ6voRNVcol/4Gk8vl/J4uQa6QPVmOXIQnlc8vy50ShpYhMklajF7OrJ2oWPgBUCNKV1zIdSuOIr1U+fBYY8BsxSd+BInOVGuGnjW1nrXx7yAge2YnWcl3zC1o4SRMH7V4zV6zTKwzG1YJ8dg7QVwCCWcJxRW3qGLHrpYPtSMXKVDx9dH6Q6mc+f7x0EfcVh5XddZT7ouyzx6OojPs76R6UK/aOSrRFzkhV4XJ3Izud6NzPtWJlHUk8SlN15UdPSHvvU50uumyGP6iWLiIJ7oclDCchOG+U3xfsCQdXY580y0xAK9x87p3oAOlW9HRqUex/C0bGHlHK1y7YYSioL8ImI1LQI877gNNfcXQryyjKvP5wtwVLdwKhNGq5zwbojTJTxqV7SoyByH0OX5ZQf9bmddN6/nsXKlVrnhHWvrUah9dpYEq1OkMn+u5pKvzl4rYoUTJoGiCQSQ6NiuFBneNOdfDsgF65Beh7uLx105kT3slW4wukjSIcbzkjeAThNSv0OvaPM0UavgcTPXEJxlhQiZgguRolMcz3pTjtBHO51VmytX8GrBfBXchF3VS+aiJZkjWfcxmkSoXa3mLAVMbqYEDi6tje1IIYOOXq+vQi7ijhm0E0Fe39yeaJ0MNFY+WKGFPl5ZldB+8fFxgyR53hx9ELFluE0d3OmH7snKQXC5RB3I046bNwcDOkr/RO6FF1BAFh/3AJ1meccUjduRmW1Ec/PCL9xBsXESMzaSJIt08zZrq8nMaRTwdPoQ08Eh96zQf0JeHf4p/7lVM0kksxHl2gNc7kS+L8Y9pZAm6OEgmVUd7qR9F+XaHvbEYHfFJPGZhqcj28MGi48jdP0a9qwPo9XjREb5cnifNWfYyaQ6GmKbpvALe9pbK8Xr4o3WJGsmF2Q/YINfRZjT7BXiIXbKqUZrnLGTb2Sf4nbPwhG2pyRy1bjAIfHcjdV32ODk7SZmG+UIizq5o7iypnjXNoO+HSBvYTWQFnGLFKT82uCu/zYuk5ml1KDsJU5qhkETdrJHFu/HYfHG3cfY4ORjHCeHYU8RnzsWV2le3r+NJAtSR1jgafzkA9LW6Jyekwza9mfYyFeweicbaRFQ660cx51KoTEIJMkPwYcYzUk33QjcCcYqrwoOgQQKwE98e6YMTrnCnkSIKSCjtkKt4mQbcTgwM+HUCPwhvElJ7uNnH6Tu1QpTCOiC1i2Gk3jgt+FNsnw12ooxKmujckMl1TpN4mIn0WAitEGZjxRU0ECiEJ27CYEEGxtVK6EtSiRfirizoFvzLmVZVkTflYU8JynsXP7kSzMbARsLnOUEKxp43nBHEvTe9s+fHHH2889jYNJV2r3Y+TnXnvd0YxISuSODy1Q0ixtGv15wOie9m0qlHomzVGoLwPmzx0cdnr1ILejMexlxkI0CnhmEglORXEUrHhVEb2ISwLdTOyyAXyjE2TZQPsuEBM9t7SI9p3bgu+y/TgsvDvrgoeFQ4ki+hzn6YbRKFWVNLxgi8O3UnmNxMpX6s/MndSERqdSO6zg7qa357CJND0dRnDwbmoBYAK/irUBopaMbXp/3Qxf8EXxjS3pM/dmjebA/8pxdH9x3fVrShaf7SOChKV8H8N8YCYjJW79veJ7i34BvPz+Db0hbqS2oGVPPOgEPU3uL4JLOU8I0Uu+0Q4ssGXz8OiTlMwnGSFwfk2jJhwvc/r3U9k9AB3BlK3VB6FupXXhb+rNLPgdXKJIUyHEEcPM+tKwFGP4mDDxXufaXjzl9fi2A75whd0EW32El3X1T7FZqmwuCizxau72NAG7fhtb8iEf4dMMm2hpB+avHJM8ugkvPKIyAj6cudNZdCVd2t1GcmYPTOgI/jwAe3jcJhCN/MqmiMb3rY9nHltlgjkTg6BsQ6qntQPCGZ9hg52QdcPzOqY7CxxHIlPyHda1m9E6OZ2v18mJqB+bUT0LZSXnBJKhHkXiegytkNHBzHD7T7IDfLLe4Zlgns/0znCy9GXnTez+fdyCDbW1Byqf5iy3QBejx8fEMvP3scdfvyBJaET3FdxWUfsLAHS+glqQghtFKJ/NdP/w6S1ViNHA0dxgqmXJ85S04BJLeyWxDB6+vucImR4rjWLO1LNoNQB6XtEXsxNEJOfPtdbEhtlNRMidGTHFqFWTy30HwvFa98QMgR+pvfXsVcFJ4wa5V1CTOxA3tgt/M5rKYnNG7mVmbi2d5DcBfl0xufmDwS6w2XUT52tmiwjBMpXosz3b9sDGtrukkdY4Lbrfx2nSdnKeQyRnNqaRm2LEtZurktI3bN+0W3n4Myd0iBUnIKQBnTiLHhw1RRXjBNjia1McBF2VvY1qJ8QpAp0vGiU3QsnCKCa4m8abGCbeQcGCnwixus+GXRZEoP+EO3OwH7G7lm1yYPvHzSirWlUwF2+D2hMWf3/NNTr68CKiSin9bNPuCaW9V/W+EZkXPQwTy9VVX1tnPtVxpgsWsU1R7P1LXciMiZBv5svUF+9DT9KuKlzUzP/Tw5oKSnT2AskTQl1irRtG4ieYIz+DmOU9HM5s4KwAbg0GkrQs43A3MnmmOp1LUzXuK7g9WGoNb3MVRXA3wQqE9mbJ0VE+l5/uQxYc2zvoLvi7x5mnt++lK+7zc4aQzJfiQxU8CGNx4s/lgb2G1ZB0oBO+yo2ZM6OID1iStCv4tKOHNLRMdqE5ayexDLJ7eGOAssUH8Pp8KK5cZIjsfoTVH2ftLp0pbMfW7px6HE6x+qZo/KEFf/R6L8vxmNSdZe9KK3MmD5NBZRlhx0Ezuk4K8jm+KgapQHJi23W6tXtzSQ8y1QbMNJdJa3PBiwW3srXbWzJgTj92z+zv7pwP/CLp5edvOYA4w7dMnQaD0VRZ834rWOSi2/FWe5gQQVNNMtse+3Z1P9gje2HQg9DRat/cjFXcl1rZfoZbm1ognC2KhvHVvHcK5GzlbS8BnstnJ5bDRaCx5GVqE54eXp/A3NmYFCy2OztHJPiq+YaLCo8OLbihMo10xfrFhZrJqezy4aw2HzZmGw1brcjAZ2QCNh+xiq6cv6GBfrMNbSaYC85xoj/E8b5t2JpvNZNRRu31/f99uj9DP2awZad04aavjVwqZm493oCjqXHCKtjE8fWtNFUxmmqaK6xiL2Pbpy1QQSDKmCb6gFBgRoRNsnkPTzXEWf8/GZ1JNOwmFCcKmYnTvuUQZnelyjrG58M3btrk2u6mO7vcdY7tDxa8QzfLOGUCO1xX3DF7zcqxiFXsfUdvJyTn0SOesLRfbhOp7oRNd87Oa6NhjY/jQfr+FF5Pavv/henZMiwWfiFZkzl+VQKdjZbA9dFQ1E2WvTxKV25B9fzy5nu2u8sawWPC5UCedi+IoShD4l/ORE4nD8FUUe+Cv7s9f5tDrLoThCrn6m1PewCA87Z9P2iPVNpfio0hpQ09u34/P9x3oGTVE2RWHaJElvkd34KdPr/vnY8BHkEEBcHsyPv+x//oyJYPQqLfoXzA1+TH6zNffWX46fXp5ed3/4Wt///X15eXpaTql+AVmd4qP/XLffiPUTd9Z3ZkndejQl/uj+3beIjvU39Ajl0pkZfK9y2AJhSTHs//WJ3xFenR2yskCmGffv06iwuokt9RrlkJzpOzn3b8rdNpIlFieC4NHn5lBIUuHfDjCd4uWWJknvQ/yoDw5J+2dBzyvf3v8iCCwvYJ2M8m+nJ1NygefmrFRbJrFuH/h8ww32mijjTbaaKONNtroH9f/AOY6bjgIWhvDAAAAAElFTkSuQmCC" alt="Company Logo" class="logo">
+
+            Nest Tech Park
+        </a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero-section text-center text-white">
+    <div class="container">
+        <h1 class="display-4 fw-bold fade-in-up">Our Services</h1>
+        <p class="lead fade-in-up">Innovative solutions tailored to your business needs</p>
+    </div>
+</section>
+
+<!-- SERVICES SECTION -->
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="section-title">What We Offer</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Artificial Intelligence</h5>
+                        <p class="card-text">Artificial Intelligence (AI) is the ability of machines to simulate human intelligence, allowing them to learn, reason, solve problems, and understand language, transforming industries from healthcare to entertainment through applications like voice assistants, recommendation systems, and autonomous vehicles. It works by teaching computers to find patterns in vast datasets, enabling them to make decisions and predictions without explicit programming for every scenario, making tasks more efficient and opening new possibilities for innovation, though it also brings important ethical considerations about privacy and jobs.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Cloud Computing</h5>
+                        <p class="card-text">Cloud computing is the on-demand delivery of IT resources (computing power, storage, networking, software) over the internet with pay-as-you-go pricing. Instead of buying, owning, and maintaining physical data centers and servers, organizations rent access to these resources from cloud providers like Amazon Web Services (AWS), Microsoft Azure, and Google Cloud.</p>
+                        <a href="cloud_new.html" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Data Engineering</h5>
+                        <p class="card-text">Data engineering builds and maintains the systems that collect, store, process, and transform raw data into accessible, usable formats for analysis, powering data science, machine learning, and business intelligence by creating reliable data pipelines and infrastructure, essentially making sense of big data for decision-making.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Machine Learning</h5>
+                        <p class="card-text">Machine learning (ML) is a subset of artificial intelligence (AI) that enables systems to learn, improve, and make decisions from data without being explicitly programmed. By utilizing algorithms to analyze vast datasets, ML models identify hidden patterns, trends, and correlations to make predictions or classify information. Common approaches include supervised learning (using labeled data), unsupervised learning (finding patterns in unlabeled data), and reinforcement learning (trial-and-error). Today, ML drives widespread, everyday technologies, including recommendation engines, voice assistants, fraud detection, and autonomous vehicles, transforming how industries process information and automate complex tasks.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Software Development</h5>
+                        <p class="card-text">Software development is the systematic process of designing, coding, testing, deploying, and maintaining software applications, turning ideas into functional programs that solve problems or meet needs, following a structured path known as the Software Development Lifecycle (SDLC) for efficiency, quality, and user satisfaction. It's a multidisciplinary field combining programming, engineering, and creativity, using various tools and languages to build everything from mobile apps to complex systems, ensuring they are reliable, secure, and scalable.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Nest Tech Park</h5>
+                <p>Innovating the future of technology with cutting-edge solutions and expert services.</p>
+            </div>
+            <div class="col-md-4">
+                <h5>Quick Links</h5>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="services.html">Services</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Info</h5>
+                <p>📞 +91 98765 43210<br>
+                📧 contact@nesttechpark.com<br>
+                📍 kakkanad, India</p>
+            </div>
+        </div>
+        <hr style="border-color: #444;">
+        <div class="text-center">
+            <p class="mb-0">© 2026 Nest Tech Park | All Rights Reserved | Powered by Innovation</p>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
