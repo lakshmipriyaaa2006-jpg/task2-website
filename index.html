@@ -1,95 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Nest Tech Park</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-<!-- External CSS -->
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nest Digital - Professional Web Solutions</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 30px 0;
+      margin-top: 50px;
+    }
+    footer p {
+      margin-bottom: 8px;
+    }
+    .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+    }
+    .card-img-top {
+      height: 250px;
+      object-fit: cover;
+    }
+    .card-title {
+      color: #007bff;
+      font-weight: 600;
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-<div class="container">
-  <a class="navbar-brand fw-bold" href="#">Nest Tech Park</a>
-  <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="menu">
-    <ul class="navbar-nav ms-auto">
-      <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
-      <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-      <li class="nav-item"><a class="nav-link" href="#contact">Contact Me</a></li>
-    </ul>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href= "#">
+      <img src="data:image/png;base64,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"
+           alt="Logo"
+           width="30"
+           height="30"
+           class="d-inline-block align-text-top">
+       Nest Digital
+    </a>    
+    
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
 </nav>
 
-<!-- SLIDER -->
-<section id="home" class="mt-5 pt-4">
-<div id="mainSlider" class="carousel slide" data-bs-ride="carousel">
+<!-- ================= CAROUSEL ================= -->
+<div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
+
     <div class="carousel-item active">
-      <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b" class="d-block w-100">
-      <div class="carousel-caption">
-        <h2>Innovative Technology Solutions</h2>
-        <p>Empowering businesses through digital excellence</p>
+      <img src="https://nestdigital.com/wp-content/uploads/2025/10/3-scaled.jpg" class="d-block w-100" alt="Slide 1">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Welcome</h3>
+        <p>This is my Bootstrap website</p>
       </div>
     </div>
+
     <div class="carousel-item">
-      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475" class="d-block w-100">
-      <div class="carousel-caption">
-        <h2>Cloud & Data Engineering</h2>
-        <p>Scalable, secure, future-ready platforms</p>
+      <img src="https://nestdigital.com/wp-content/uploads/2023/04/Rectangle-59-1.png" class="d-block w-100" alt="Slide 2">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Projects</h3>
+        <p>Showcase your work here</p>
+      </div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrdFPohRSxTQBpg2EERy6RbHNpI82v_oBOwA&s" class="d-block w-100" alt="Slide 3">
+      <div class="carousel-caption d-none d-md-block">
+        <h3>Contact</h3>
+        <p>Get in touch with me</p>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- ================= ABOUT US ================= -->
+<div id="about" class="py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-12">
+        <h2 class="mb-4">About Nest Digital</h2>
+        <p class="lead">Nest Digital is a leading provider of innovative digital solutions and professional web services. With years of experience in the industry, we are committed to delivering high-quality products and services to our clients worldwide.</p>
+        <p>Our team of experts specializes in:</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item border-0 ps-0"><strong>✓</strong> Web Development & Design</li>
+          <li class="list-group-item border-0 ps-0"><strong>✓</strong> Digital Marketing Solutions</li>
+          <li class="list-group-item border-0 ps-0"><strong>✓</strong> Cloud & Infrastructure Services</li>
+          <li class="list-group-item border-0 ps-0"><strong>✓</strong> Custom Software Development</li>
+        </ul>
+        <p class="mt-4">We believe in building lasting partnerships with our clients and delivering excellence in every project we undertake.</p>
       </div>
     </div>
   </div>
 </div>
-</section>
 
-<!-- ABOUT ME -->
-<section id="about" class="py-5">
-<div class="container text-center">
-<h2>About Me</h2>
-<p>
+<!-- ================= CARDS ================= -->
+<div class="container my-5">
+  <div class="text-center mb-5">
+    <h2 id="services" class="mb-3">Our Services</h2>
+    <p class="text-muted lead">Comprehensive digital solutions tailored to your business needs</p>
+  </div>
 
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 transition">
+        <img src="https://nestdigital.com/wp-content/uploads/2025/10/1-3-scaled.jpg" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Web Development</h5>
+          <p class="card-text">Custom web applications and responsive website design using latest technologies. We create fast, scalable, and user-friendly web solutions.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
 
-Nest Tech Park is a forward-thinking technology company dedicated to delivering innovative digital solutions. We specialize in Artificial Intelligence, Cloud Computing, Data Engineering, and Software Development. Our mission is to help businesses thrive in the digital era by creating scalable, secure, and intelligent platforms that drive efficiency, innovation, and growth.
-</p>
-</div>
-</section>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 transition">
+        <img src="https://networkencyclopedia.com/wp-content/uploads/2019/08/Handshaking-Protocols.webp" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Cloud & Infrastructure</h5>
+          <p class="card-text">Secure cloud solutions and infrastructure management. We help you migrate, manage, and optimize your cloud environment for maximum performance.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
 
-<!-- SERVICES -->
-<section id="services" class="py-5 bg-light">
-<div class="container">
-<h2 class="text-center mb-4">My Services</h2>
-<div class="row justify-content-center g-4">
-
-<div class="col-6 col-sm-4 col-md-3">
-  <div class="service-card" onclick="showDetails('AI')">
-    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995">
-    <h6>Artificial Intelligence</h6>
+    <div class="col-md-4">
+      <div class="card h-100 shadow-sm border-0 transition">
+        <img src="https://sfotechnologies.net/images/ngroup-slide.jpg" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">Digital Marketing</h5>
+          <p class="card-text">Strategic digital marketing campaigns designed to boost your online presence. SEO, content marketing, social media, and paid advertising expertise.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="col-6 col-sm-4 col-md-3">
-  <div class="service-card" onclick="showDetails('Cloud')">
-    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
-    <h6>Cloud Computing</h6>
+<!-- ================= CONTACT ================= -->
+<div id="contact" class="bg-light py-5">
+  <div class="container text-center">
+    <h2>Contact Me</h2>
+    <p>Email:karthikaharilal46@email.com</p>
+    <p>Phone: +123 456 7890</p>
   </div>
 </div>
 
-<div class="col-6 col-sm-4 col-md-3">
-  <div class="service-card" onclick="showDetails('Data')">
-    <img src="https://images.unsplash.com/photo-1550751827-
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <h6 class="mb-3">Contact Information</h6>
+        <p><strong>Nest Digital Corporate Office</strong></p>
+        <p>Plot No. 2, Cochin Special Economic Zone (CSEZ)<br>Kakkanad, Cochin – 682 037, India</p>
+        <p><strong>Phone:</strong> +91 9747221682</p>
+        <p><strong>Email:</strong> sales.nestdigital@nestgroup.net</p>
+      </div>
+      <div class="col-md-6">
+        <h6 class="mb-3">Additional Numbers</h6>
+        <p>+91-484-6701000</p>
+        <p>+91-484-4203333</p>
+      </div>
+    </div>
+    <hr style="border-color: rgba(255,255,255,0.2);">
+    <p class="text-center mb-0">&copy; 2026 Nest Digital | All Rights Reserved</p>
+  </div>
+</footer>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
